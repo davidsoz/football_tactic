@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Modal from "./componenets/Modal";
-import StadiumBackground from "./images/stadium.png"
+import StadiumBackground from "./images/stadium.png";
 
 const Container = styled.div`
     padding: 50px;
@@ -60,18 +60,18 @@ function App() {
             if( isNaN(Number(value[i])) && (i === 0 || value[i] !== '-') ||
                 (value[i] === '-' && value[i + 1] === '-') ||
                 (Number(value[i]) && Number(value[i + 1])) ) { 
-                    
+            
                 return;
             } 
         }
-
+        
         return true;
     }
 
     function inputChangeHandler(e) {
         if(validation(e.target.value)) {
             setInputTactic(e.target.value);
-        };
+        }; 
     }
 
     function updateTactic() {
@@ -93,6 +93,9 @@ function App() {
             nextTactic[nextTactic.length - 2 - i] = parseInput[i];
         }
         setTactic(nextTactic);
+        if(inputTactic === '') {
+            setTactic([0,0,0,1])
+        }
     }
 
     useEffect(() => {
