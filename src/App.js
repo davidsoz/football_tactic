@@ -55,12 +55,23 @@ function App() {
         setShowModal(true);
     }
 
+    function validation(value) {
+        for(let i = 0; i < value.length; i++) {
+            if( isNaN(Number(value[i])) && (i === 0 || value[i] !== '-') ||
+                (value[i] === '-' && value[i + 1] === '-') ||
+                (Number(value[i]) && Number(value[i + 1])) ) { 
+                    
+                return;
+            } 
+        }
+
+        return true;
+    }
+
     function inputChangeHandler(e) {
-        if(isNaN(Number(e.target.value)) && !e.target.value.split('').includes('-')) {
-            return;
+        if(validation(e.target.value)) {
+            setInputTactic(e.target.value);
         };
-        console.log('change');
-        setInputTactic(e.target.value);
     }
 
     function updateTactic() {
