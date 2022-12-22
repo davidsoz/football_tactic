@@ -117,10 +117,11 @@ function App() {
             {
                 showModal &&
                 <Modal onClose={closeModalHandler}>
-
+                    <h1>This part is under constuction 😜</h1>
                 </Modal>
             }
             <Container>
+                <h1>INSERT YOUR TACTIC!</h1>
                 <InputContainer>
                     <input value={inputTactic} onChange={inputChangeHandler} ref={inputRef} maxLength='5' />
                     {showTypeError && <ErrorMessage message={message}/>} 
