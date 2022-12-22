@@ -48,6 +48,7 @@ function App() {
     const [showTypeError, setShowTypeError] = useState(false);
 
     const inputRef = useRef();
+
     const message = useMemo(() => {
         return Number(inputTactic[inputTactic.length-1]) ? 'next must be dash*' : 'next must be number*'
     }, [showTypeError])
